@@ -24,12 +24,10 @@ onLogout(): void {
 }
 getMovies(url): void {
   this.http.get(url).subscribe((data:any) => {
-      console.log(data);
       for (let i = 0; i < data.results.length; ++i) {
         this.user.push(data.results[i]);
       }
       this.nextUrl = data.next;
-      console.log(this.user);
       this.isError = false;
       this.isLoading = false;
     },
