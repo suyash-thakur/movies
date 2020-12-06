@@ -45,6 +45,8 @@ autoAuthUser() {
   const authInformation = this.getAuthData();
   if (!authInformation) {
     console.log('error');
+    this.router.navigate(['/login']);
+
 
     return;
   }
