@@ -1,0 +1,71 @@
+<div class="container" >
+  <div class="main-header">
+    <div style="font-size: 25px;">
+      Movies
+    </div>
+    <div>
+      <button class="logout-button" (click)="onLogout()">Sign Out</button>
+    </div>
+  </div>
+  <hr>
+  <div style="width: 100%; text-align: center; margin-top: 100px;" *ngIf="isError">
+    <div style="cursor:pointer" (click)="onRetry()">
+      <img src="../../assets/retry.svg" style="max-width: 125px;">
+      <h3>Retry</h3>
+    </div>
+    <p style="color: #fa7777;">Error Loading data</p>
+  </div>
+
+  <div class="row" *ngIf="!isError && !isLoading" infiniteScroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="50" (scrolled)="getMovies(nextUrl)">
+    <div class="col-md-4 col-xs-12" *ngFor="let item of user; let i = index">
+      <div class="cord-background" (click)="onMoviesSelect(i)">
+        <div class="card-flex">
+        <div >
+          <img [src]="'https://ui-avatars.com/api/?name=' + item.title " class="image-round">
+        </div>
+        <div style="padding-left: 15px;">
+          <h4>{{ item.title }}</h4>
+          <b class="genre">{{ item.genres }}</b>
+          <br>
+        </div>
+      </div>
+      <br>
+      <p>{{item.description | truncate: 150  }}</p>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" [hidden]="true" id="openModalButton">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="background-color:  #27272a71;" *ngIf="!isError && !isLoading">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="background-color:  #27272a;">
+        <div class="modal-header" style="border-bottom: 2px solid #5a5a5e;">
+          <div class="card-flex">
+            <div >
+              <img [src]="'https://ui-avatars.com/api/?name=' + user[selectedIndex].title " >
+            </div>
+            <div style="padding-left: 15px;">
+              <h4>{{ user[selectedIndex].title }}</h4>
+              <b class="genre">{{ user[selectedIndex].genres }}</b>
+              <br>
+            </div>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:  #fa7777; text-shadow: none;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ user[selectedIndex].description }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="width: 100%; text-align: center; margin-top: 50px; display: flex; justify-content: center; align-items: center;" *ngIf="isLoading">
+    <div class="app-loader"></div>
+  </div>
+</div>

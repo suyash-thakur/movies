@@ -1,0 +1,55 @@
+.login-container {
+  text-align: left;
+  width: fit-content;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+h1 {
+  font-family: "Karla";
+  font-size: 3.5rem;
+
+}
+h2 {
+  font-family: "Karla";
+  color: #5a5a5e;
+  font-size: 2.5rem;
+
+}
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  color: #5a5a5e;
+  font-size: 20px;
+}
+input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid  #fefefe;
+  color: #fefefe;
+  font-size: 1.35rem;
+}
+input:focus {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid  #fefefe;
+}
+.input-alert {
+  color: #fa7777;
+}
+.submit-button {
+  width: 100%;
+  color: #fefefe;
+  font-family: "Karla";
+  background-color: #5a5a5e;
+  font-size: 1.5rem;
+
+
+}
+.submit-button:disabled,
+button[disabled]{
+  background-color: #27272a;
+  color: #5a5a5e;
+}

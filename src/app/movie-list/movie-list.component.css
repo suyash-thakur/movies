@@ -1,0 +1,54 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+hr {
+  border: 2px solid #fa7777;
+  color: #fa7777;
+  background-color: #fa7777;
+}
+.logout-button {
+  background-color: transparent;
+  box-shadow: none;
+  outline: inherit;
+  border: 2px solid  #fa7777;
+  color:  #fa7777;
+  cursor: pointer;
+  padding-bottom: 3px;
+}
+.app-loader {
+  background: url("../../assets/three-dots.svg");
+  background-repeat: no-repeat;
+  max-width: 100%;
+  background-position: center;
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  margin-top: 50px;
+}
+.cord-background {
+  background-color: #27272a;
+  margin-bottom: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+.image-round {
+  border-radius: 50%;
+}
+.genre {
+  color: #5a5a5e;
+}
+h4 {
+  margin-bottom: 7px;
+}
+.card-flex {
+  width: 100%;
+  display: flex;
+}
+@media only screen and (min-width: 768px) {
+  .cord-background {
+    height: 250px;
+  }
+}

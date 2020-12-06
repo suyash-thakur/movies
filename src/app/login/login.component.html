@@ -1,0 +1,39 @@
+<div class="page-container align-center container" style="height: 100vh;">
+
+  <div class="login-container">
+    <h1>Welcome !!</h1>
+    <br>
+    <h2>Sign In</h2>
+    <div class="input-alert" *ngIf="!isCredCorrect">
+      <br>
+      Incorrect Name or Password
+      <br>
+      <br>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <div >
+        <input  formControlName="name" type="text" placeholder="Enter Your Name">
+    </div>
+    <div *ngIf="loginForm.controls['name'].invalid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched)" class="input-alert">
+      <div *ngIf="loginForm.controls['name'].errors.required">
+        Name is required.
+      </div>
+  </div>
+  <br>
+  <div >
+    <input  formControlName="password" type="password" placeholder="Enter Your Password">
+</div>
+<div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="input-alert">
+  <div *ngIf="loginForm.controls['password'].errors.required">
+    Password is required.
+  </div>
+</div>
+<br>
+<br>
+<button type="submit"
+            [disabled]="loginForm.pristine || loginForm.invalid || buttonDisabled" class="submit-button">
+            Sign In
+        </button>
+    </form>
+  </div>
+</div>
